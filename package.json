@@ -1,0 +1,19 @@
+{
+  "name": "webdriverio-udemy",
+  "version": "1.0.0",
+  "description": "WebdriverIO Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Claudio Correia",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "selenium-standalone": "^6.15.3",
+    "wdio-dot-reporter": "0.0.10",
+    "wdio-mocha-framework": "^0.6.4",
+    "wdio-selenium-standalone-service": "0.0.12",
+    "webdriverio": "^4.14.4"
+  }
+}
