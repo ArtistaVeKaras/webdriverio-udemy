@@ -5,6 +5,8 @@ if (process.env.SERVER === 'prod'){
 }else {
     baseUrl = 'https://www.webdriveruniversity.com/';
 }
+var timeout = process.env.DEBUG ? 999999999 : 90000;
+
 exports.config = {
     
     //
@@ -137,7 +139,8 @@ exports.config = {
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
-        ui: 'bdd'
+        ui: 'bdd',
+        timeout: timeout
     },
     //
     // =====
@@ -169,8 +172,11 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function (capabilities, specs) {
+        const expect = require('chai').expect
+        const should = require('chai').should();
+        const assert = require('chai').assert;
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
