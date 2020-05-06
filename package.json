@@ -4,7 +4,8 @@
   "description": "WebdriverIO Framework",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wdio": "wdio"
   },
   "author": "Claudio Correia",
   "license": "ISC",
@@ -12,8 +13,11 @@
     "mocha": "^5.2.0",
     "selenium-standalone": "^6.15.3",
     "wdio-dot-reporter": "0.0.10",
-    "wdio-mocha-framework": "^0.6.4",
+    "wdio-mocha-framework": "^0.6.1",
     "wdio-selenium-standalone-service": "0.0.12",
-    "webdriverio": "^4.14.4"
+    "webdriverio": "^4.13.2"
+  },
+  "dependencies": {
+    "fibers": "^5.0.0"
   }
 }
