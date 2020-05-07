@@ -6,5 +6,5 @@ const actual = 2;
 const expected = 2;
 
 // assert(actual, expected);
-// expect(actual).to.equal(expected);
+expect(actual).to.equal(expected);
 // actual.should.to.equal(expected);
