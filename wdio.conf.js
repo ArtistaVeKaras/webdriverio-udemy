@@ -137,6 +137,15 @@ exports.config = {
         reporterOptions: {
             junit: {
                 outputDir: './reports/junit-results'
+            },
+            json: {
+                outputDir: './reports/json-results'
+            },
+            allure: {
+                outputDir: './reports/allure-results',
+                disableWebdriverStepsReporting: false,
+                disableWebdriverScreenshotsReporting: false,
+                useCucumberStepReporter: false
             }
         },
     //
