@@ -1,0 +1,64 @@
+class ContactUs_Page {
+    get first_name() { return $('[name="first_name"]'); }
+    get last_name() { return $('[name="last_name"]'); }
+    get emailAdd() { return $('[name="email"]'); }
+    get comment() { return $('[name="message"]'); }
+    get submitBtn() { return $('[value="SUBMIT"]'); }
+    // get successfulMsg() { return $('div[id=\'contact_reply\']'); }
+    get unsuccessfulMsg() { return $('body'); }
+
+    setFirstName(firstName) {
+        return this.first_name.setValue(firstName);
+    }
+
+    setLastName(lastName) {
+        return this.last_name.setValue(lastName);
+    }
+
+    setEmailAddress(emailAddress) {
+        return this.emailAdd.setValue(emailAddress);
+    }
+
+    setComments(comments) {
+        return this.comment.setValue(comments);
+    }
+
+    clickSubmitButton() {
+        return this.submitBtn.click();
+    }
+
+//some concept as the above but more clear
+    submitAllInformationViaContactUsForm(firstName, lastName, emailAddress, comments){
+        if (firstName){
+            this.setFirstName(firstName);
+        }
+        if (lastName){
+            this.setLastName(lastName);
+        }
+        if (emailAddress){
+            this.setEmailAddress(emailAddress);
+        }
+        if (comments){
+            this.setComments(comments);
+        }
+        this.clickSubmitButton();
+        this.confirmSuccessfulSubmission()
+    }
+
+    confirmSuccessfulSubmission() {
+        const succefulMgs = $('div[id=\'contact_reply\']');
+        const validateSubmissionHeader = browser.waitUntil(function () {
+            return browser.getText(succefulMgs) === 'Thank You for your Message!'
+        }, 6000);
+        expect(validateSubmissionHeader, 'Successful Submission Message does not Exist!').to.be.true;
+    }
+
+    confirmUnsuccessfulSubmission() {
+        const unsuccessfulMsg = $('body');
+        const validateSubmissionHeader = browser.waitUntil(function () {
+            return browser.getText(unsuccessfulMsg) === 'Error: all fields are required'
+        }, 6000);
+        expect(browser.getText(unsuccessfulMsg), 'Unsuccessful Submission Message does not Exist!').to.include('Error: all fields are required');
+    }
+}
+module.exports = new ContactUs_Page();
