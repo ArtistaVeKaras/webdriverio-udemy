@@ -29,4 +29,4 @@ download nodejs plugin from jenkins plugin store
 set the home path for node in the configuration --> /usr/local/bin
 create a new project
 
-nodejs command --> npm install & npm test
+nodejs command --> npm install & npm test -- --baseUrl="$baseUrl"
