@@ -21,3 +21,12 @@ SERVER=prod npm test
 
 ###log test with verbose
 npm tet -- --loglevel=verbose
+
+
+###jenkins installation with nodejs
+download jenkins war file & start the server
+download nodejs plugin from jenkins plugin store
+set the home path for node in the configuration --> /usr/local/bin
+create a new project
+
+nodejs command --> npm install & npm test

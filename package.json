@@ -12,6 +12,7 @@
   "devDependencies": {
     "@wdio/allure-reporter": "^6.1.9",
     "chai": "^4.2.0",
+    "del": "^5.1.0",
     "mocha": "^5.2.0",
     "request": "^2.88.2",
     "selenium-standalone": "^6.15.3",
