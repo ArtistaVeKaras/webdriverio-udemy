@@ -4,8 +4,14 @@ class ContactUs_Page {
     get emailAdd() { return $('[name="email"]'); }
     get comment() { return $('[name="message"]'); }
     get submitBtn() { return $('[value="SUBMIT"]'); }
-    // get successfulMsg() { return $('div[id=\'contact_reply\']'); }
-    get unsuccessfulMsg() { return $('body'); }
+    get successfulSbumissionHeader() { return $('#contact_reply h1'); }
+    get unsuccessfulMsg() { return $("body"); }
+    get successfulSubmissionHeaderText() {
+        return this.successfulSbumissionHeader.getText();  //Thank You for your Message!
+    }
+    get unsuccessfulSubmissionHeaderText() {
+        return this.unsuccessfulMsg.getText(); //Error: all fields are required
+    }
 
     setFirstName(firstName) {
         return this.first_name.setValue(firstName);
@@ -42,23 +48,6 @@ class ContactUs_Page {
             this.setComments(comments);
         }
         this.clickSubmitButton();
-        this.confirmSuccessfulSubmission()
-    }
-
-    confirmSuccessfulSubmission() {
-        const succefulMgs = $('div[id=\'contact_reply\']');
-        const validateSubmissionHeader = browser.waitUntil(function () {
-            return browser.getText(succefulMgs) === 'Thank You for your Message!'
-        }, 6000);
-        expect(validateSubmissionHeader, 'Successful Submission Message does not Exist!').to.be.true;
-    }
-
-    confirmUnsuccessfulSubmission() {
-        const unsuccessfulMsg = $('body');
-        const validateSubmissionHeader = browser.waitUntil(function () {
-            return browser.getText(unsuccessfulMsg) === 'Error: all fields are required'
-        }, 6000);
-        expect(browser.getText(unsuccessfulMsg), 'Unsuccessful Submission Message does not Exist!').to.include('Error: all fields are required');
     }
 }
 module.exports = new ContactUs_Page();
